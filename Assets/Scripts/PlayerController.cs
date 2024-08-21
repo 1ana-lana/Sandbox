@@ -1,32 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 20;
+    private float _speed = 20;
     [SerializeField]
-    private float turnSpeed = 5;
+    private float _turnSpeed = 5;
     [SerializeField]
-    private float horizontalInput;
+    private float _horizontalInput;
     [SerializeField]
-    private float forwardInput;
+    private float _forwardInput;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Vertical");
+        _horizontalInput = Input.GetAxis("Horizontal");
+        _forwardInput = Input.GetAxis("Vertical");
 
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-        transform.Rotate(Vector3.up, horizontalInput * turnSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * Time.deltaTime * _speed * _forwardInput);
+        transform.Rotate(Vector3.up, _horizontalInput * _turnSpeed * Time.deltaTime);
     }
 }
